@@ -1,0 +1,74 @@
+.red-btn{
+    background-color: rgb(240, 18, 18);
+}
+
+#heading {
+    padding-left: 20%;
+}
+.listing-card{
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img{
+    max-width: 60%;
+    height: auto;    
+    border-radius: 1.2rem;
+    align-self: center;
+}
+.owner {
+    padding-left: 20%;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.card-body{
+    padding-left: 20%;
+}
+
+.allContent {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#allReviewsList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.review-card{
+    width: 50%;
+    /* margin-left: 10%; */
+}
+
+.three-dots{
+    align-self: flex-end;
+    padding-right: 0.3rem;
+    padding-top: 0.3rem;
+    font-size: 1.2em;
+    opacity: 0;
+
+}
+.review-card:hover .three-dots{
+    opacity: 1;
+}
+
+#mapSection{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+#map{ 
+    height: 400px;
+    width: 80%;
+    align-self: center;
+}
+
+#mapSection h3{
+    margin-left: 10%;
+    margin-bottom: 1rem;
+}

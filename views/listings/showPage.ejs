@@ -1,0 +1,87 @@
+<%layout('layout')%>
+<%- block('styles').append('<link rel="stylesheet" href="/css/show.css">') %>
+<%- block('styles').append('<link rel="stylesheet" href="/css/rating.css">') %>
+<%- block('styles').append('<link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">') %>
+<div class="allContent">
+    <div class="card listing-card">
+        <h1 id="heading">Details</h1>
+        <img src="<%= details.image.url %>" class="card-img-top" alt="loading image">
+        <div class="owner">
+            <p><i>Owned by: <%= details.owner.username %> </i></p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><b><%= details.title %></b></h5>
+            <p class="card-text">
+                <%= details.description %> <br>
+                &#8377;<%= details.price.toLocaleString('en-IN') %> <br>
+                <%= details.location %> <br>
+                <%= details.country %> <br>
+            </p>
+            <% if(currentUser &&  details.owner._id.equals(currentUser._id)) { %>
+                <a href="/listings/<%= details._id %>/edit" ><button class="btn btn-dark red-btn">Edit</button></a> <br><br>
+    
+                <form action="/listings/<%= details._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-dark">Delete</button>
+                </form>
+            <% } %>
+        </div>
+    </div><hr>
+    <% if(currentUser) { %>
+        <div id="review">
+            <h3>Leave a review</h3>
+            <form action="/listings/<%= details._id %>/reviews" method="post" novalidate class="needs-validation">
+                <label for="rating" class="form-label">Rating</label>
+                <fieldset class="starability-slot">
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="3" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" required/>
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                </fieldset>
+    
+                <textarea name="comment" id="comment" placeholder="write a comment" class="form-control" rows="10" cols="35" required></textarea>
+                <div class="invalid-feedback">Please some comment for review</div> <br>
+                <button class="btn btn-dark" style="background-color: rgb(240, 18, 18);">Review</button> <br> <br>
+            </form>
+        </div>
+    <% } %>
+
+
+    <div id="allReviewsList">
+        <% if(details.reviews.length > 0) { %>
+            <h3 style="width: 100%;">All Reviews</h3>
+        <% } %> 
+        <% for(review of details.reviews){ %>
+            <div class="card review-card">
+                <i class="fa-solid fa-ellipsis-vertical three-dots"></i>
+                <div class="card-body">
+                    <h5 class="card-title">@<%= review.author.username %></h5>
+                    <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                    
+                    <p class="card-text"><%= review.comment %></p>
+                    <% if(currentUser && currentUser._id.equals(review.author._id)) {%>
+                        <form action="/listings/<%= details._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
+                            <button class="btn btn-dark">Delete</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        <%}%>
+    </div>
+    <div id="mapSection">
+        <h3>Where you'll be</h3>
+        <div id="map"></div>
+    </div>
+</div> <br>
+
+<%- block('scripts').append('<script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>') %>
+<%- block('scripts').append('<script>const mapToken = "' + process.env.MAPBOX_KEY + '";</script>') %>
+<%- block('scripts').append('<script>const coordinates = ' + JSON.stringify(details.geometry.coordinates) + ';</script>') %>
+<%- block('scripts').append('<script src="/js/mapBox.js"></script>') %>
+

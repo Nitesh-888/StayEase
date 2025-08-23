@@ -1,0 +1,19 @@
+<% layout('layout') %>
+<% block('styles').append('<link rel="stylesheet" href="/css/error.css">') %>
+
+<div id="sad-emoji">
+    <img src="/images/sad-emoji.png" alt="image loading">
+</div>
+<div id="errorMess">
+    <% if(statusCode == 404) { %>
+        <b id="code"> 404</b>
+        <p>Oops! <%= message %></p>
+    <% }else if (statusCode == 400){ %>
+        <b id="code"> 400 </b>
+        <p>Ooops! The request was invalid or incomplete. Please try again. </p>
+    <% }else{ %>
+        <b id="code"> 500</b>
+        <p>Ooops! Something Went Wrong. Please try again later.</p>
+    <% } %>
+</div>
+

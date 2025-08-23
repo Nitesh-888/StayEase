@@ -1,0 +1,73 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
+}
+
+.fa-compass{
+    color: rgb(255, 0, 0);
+}
+
+.navbar{
+    height: 4rem;
+}
+
+.navbar-brand {
+    font-size: 2rem ;
+}
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-socials{
+    font-size: 2rem;
+}
+.f-info-socials a{
+    color: #222222;
+}
+
+
+#f-info{
+    background-color: rgb(207, 207, 201);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+
+.search-btn{
+    background-color: red;
+    color: white;
+    border-radius: 1.5rem;
+
+}
+
+.search-btn:hover{
+    background-color: darkred;
+    color: white;
+    cursor: pointer;
+}
+
+.search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-inp{
+    border-radius: 1.5rem;
+    width: 20rem;
+}
+
