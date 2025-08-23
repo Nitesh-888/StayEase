@@ -20,7 +20,7 @@ import LocalStrategy from 'passport-local';
 import { User } from './models/userModel.js';
 
 const app = express();
-const __dirname = '/home/hunter/Documents/Projects/StayEase/';
+const __dirname = './';
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname + 'public')));
 app.use(express.urlencoded({extended : true}));
