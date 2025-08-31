@@ -2,52 +2,120 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 0.5rem;
 }
 
 .allLists img{
     width: 100%;
-    height: 20rem;
+    height: 16rem;
     border-radius: 1.2rem;
 }
 
 .card{
     margin-bottom: 1.5rem;
-    
+    width: 25rem;
+    border-radius: 1.2rem;
 }
 
 .card:hover{
     border-width: 0.2rem;
-    box-shadow: 1rem 1rem 2rem black;
-    opacity: 0.8;
+    box-shadow: 0.5rem 0.5rem 0.6rem 0.1rem rgb(133, 123, 123);
+    opacity: 0.95;
 }
 
-#filters{
+
+/* ------------------------------------------------ */
+#allFilters{
+    display: flex;
+    flex-direction: row;
+    height: 4.5rem;
+}
+
+#icons{
     display: flex;
     direction: row;
-    align-items: center;
+    margin-left: 1.5rem;
+    width: 50%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
 }
 
 .filter{
+    font-size: large;
     text-align: center;
     margin-right: 1rem;
-    margin-top: 1rem;
-    opacity: 0.7;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+    align-self: center;
 }
 
 .filter:hover{
+    font-weight: 600;
     opacity: 1;
     cursor: pointer;
+    
 }
 
-#taxToggle{
+.taxToggle{
     border: 1px solid rgb(0, 0, 0);
     border-radius: 1rem;
     padding: 0.5rem;
     display: flex;
     align-items: center;
     margin-left: auto;
+    margin-right: 1.5rem;
+    height: 3rem;
+}
+.taxToggle:hover{
+    box-shadow: 1px 1px 2px black;
+}
+#taxToggle2{
+    display: none;
+}
+
+@media(max-width : 712px){
+    .taxToggle{
+        font-size: 0.8rem;
+    }
+}
+@media(max-width : 590px){
+    #taxToggle1{
+        display: none;
+    }
+    #taxToggle2{
+        display: block;
+        height: 2.3rem;
+    }
+    #icons{
+        width: 40%;
+    }
+    .icon{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width: 365px){
+    #icons{
+        width: 30%;
+    }
+    .icon{
+        font-size: 0.8rem;
+    }
 }
 
 .tax-infos {
     display: none;;
+}
+
+#arrow-icon{
+    font-size: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#pagination-section{
+    display: flex;
+    justify-content: center;
 }

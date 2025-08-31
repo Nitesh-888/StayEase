@@ -9,6 +9,7 @@ const ejsMate = require('ejs-mate');
 import { ExpressError } from './utils/expressError.js';
 import listingsRoute from './routes/listings.js'
 import userRoute from './routes/user.js';
+import apiRoute from './routes/api.js';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import flash from 'connect-flash';
@@ -79,6 +80,8 @@ app.use("/", userRoute);
 //listing route
 app.use('/listings', listingsRoute);
 
+//api route
+app.use('/api', apiRoute);
 
 //page not found
 app.all('*', (req, res, next) => {

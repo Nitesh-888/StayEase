@@ -1,5 +1,5 @@
 <%layout('layout')%>
-<% block('styles').append('<link rel="stylesheet" href="/css/addform.css">') %>
+<% block('styles').append('<link rel="stylesheet" href="/css/form.css">') %>
 <div class="addform col-8 offset-2">
     <h1>Create a new listing</h1>
     <form action="/listings" method="post" enctype="multipart/form-data" novalidate class="needs-validation">
@@ -37,7 +37,7 @@
                 <div class="valid-feedback">country should be valid</div> 
             </div>
         </div><br>
-        <button type="submit" class="btn btn-dark red-btn">Add</button><br><br>
+        <button type="submit" class="btn btn-danger red-btn"><b>Add</b></button><br><br>
 
     </form>
 </div>

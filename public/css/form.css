@@ -1,0 +1,9 @@
+.red-btn{
+    color: white;
+    background-color: red;
+}
+.red-btn:hover{
+    background-color: darkred;
+    color: white;
+}
+

@@ -2,6 +2,8 @@
 <%- block('styles').append('<link rel="stylesheet" href="/css/show.css">') %>
 <%- block('styles').append('<link rel="stylesheet" href="/css/rating.css">') %>
 <%- block('styles').append('<link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">') %>
+<%- block('styles').append('<link rel="stylesheet" href="/css/form.css">') %>
+
 <div class="allContent">
     <div class="card listing-card">
         <h1 id="heading">Details</h1>
@@ -18,7 +20,7 @@
                 <%= details.country %> <br>
             </p>
             <% if(currentUser &&  details.owner._id.equals(currentUser._id)) { %>
-                <a href="/listings/<%= details._id %>/edit" ><button class="btn btn-dark red-btn">Edit</button></a> <br><br>
+                <a href="/listings/<%= details._id %>/edit" ><button class="btn btn-danger red-btn"><b>Edit</b></button></a> <br><br>
     
                 <form action="/listings/<%= details._id %>?_method=DELETE" method="post">
                     <button class="btn btn-dark">Delete</button>
@@ -47,7 +49,7 @@
     
                 <textarea name="comment" id="comment" placeholder="write a comment" class="form-control" rows="10" cols="35" required></textarea>
                 <div class="invalid-feedback">Please some comment for review</div> <br>
-                <button class="btn btn-dark" style="background-color: rgb(240, 18, 18);">Review</button> <br> <br>
+                <button class="btn btn-danger red-btn"><b>Review</b></button> <br> <br>
             </form>
         </div>
     <% } %>

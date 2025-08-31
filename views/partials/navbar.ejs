@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-body-tertiary  sticky-top border-bottom">
+<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top border-bottom">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-duotone fa-regular fa-compass"></i> StayEase</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,22 +9,32 @@
         <a class="nav-link" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="/listings">Explore</a>
       </div>
-
-      <div class="navbar-nav mx-auto">
+      
+      <!-- desktop only search bar -->
+      <div class="navbar-nav mx-auto" id="searchBar1">
         <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search"/>
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search" name="search"/>
+          <button class="btn btn-danger search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i><b>Search</b></button>
         </form>
       </div>
 
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Offer Your Stay</a>
+        <a class="nav-link" href="/listings/new" id="offer1">Offer Your Stay</a>
+        <a class="nav-link" href="/listings/new" id="offer2">Host</a>
         <% if (!currentUser) { %>
           <a class="nav-link" href="/signup"><b>Sign up</b></a>
           <a class="nav-link" href="/login"><b>Login</b></a>
         <% } else { %>
           <a class="nav-link" href="/logout"><b>Logout</b></a>
         <% } %>
+      </div>
+
+      <!-- mobile only search bar -->
+      <div class="navbar-nav ms-auto" id="searchBar2">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search" name="search"/>
+          <button class="btn btn-danger search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i><b>Search</b></button>
+        </form>
       </div>
     </div>
   </div>

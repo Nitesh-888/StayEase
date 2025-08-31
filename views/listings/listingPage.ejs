@@ -1,107 +1,132 @@
 <%layout('layout')%>
 <% block('styles').append('<link rel="stylesheet" href="/css/listings.css">') %>
-<div id="filters">
-    <div class="filter">
-        <i class="fa-solid fa-fire"></i>
-        <p>Trending</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-bed"></i>
-        <p>Rooms</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-mountain-city"></i>
-        <p>Iconic cities</p>  
-    </div>  
-    <div class="filter">
-        <i class="fa-solid fa-person-swimming"></i>
-        <p>Amazing pools</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-tent"></i>
-        <p>Camping</p>
-    </div>
-    <div class="filter">
-        <i class="fa-brands fa-fort-awesome"></i>
-        <p>Castles</p>  
-    </div> 
-    <div class="filter">
-        <i class="fa-solid fa-snowflake"></i>
-        <p>Arctic</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-tractor"></i>
-        <p>Farms</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-mountain-sun"></i>
-        <p>Mountains</p>  
-    </div> 
-    <div class="filter">
-        <i class="fa-solid fa-tree"></i>
-        <p>Nature</p>
-    </div>
-    <!-- <div class="filter">
-        <i class="fa-solid fa-moon"></i>
-        <p>Nightlife</p>  
-    </div> 
+<div id="allFilters">
+    <div id="icons">
+        <div class="filter icon">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-bed"></i>
+            <p>Rooms</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-mountain-city"></i>
+            <p>Iconic cities</p>  
+        </div>  
+        <div class="filter icon">
+            <i class="fa-solid fa-person-swimming"></i>
+            <p>Amazing pools</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-tent"></i>
+            <p>Camping</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-brands fa-fort-awesome"></i>
+            <p>Castles</p>  
+        </div> 
+        <div class="filter icon">
+            <i class="fa-solid fa-snowflake"></i>
+            <p>Arctic</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-tractor"></i>
+            <p>Farms</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <p>Mountains</p>  
+        </div> 
+        <div class="filter icon">
+            <i class="fa-solid fa-tree"></i>
+            <p>Nature</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-moon"></i>
+            <p>Nightlife</p>  
+        </div> 
 
-    <div class="filter">
-        <i class="fa-solid fa-umbrella-beach"></i>
-        <p>Beach</p>
+        <div class="filter icon">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beach</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-city"></i>
+            <p>City</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-tree-city"></i>
+            <p>Countryside</p>  
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-igloo"></i>
+            <p>Unique stays</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-house"></i>
+            <p>Entire homes</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-person"></i>
+            <p>For one</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-people-group"></i>
+            <p>For groups</p>
+        </div>
+        <div class="filter icon">
+            <i class="fa-solid fa-paw"></i>
+            <p>Pet-friendly</p>
+        </div>
     </div>
-    <div class="filter">
-        <i class="fa-solid fa-city"></i>
-        <p>City</p>
+    <div id="arrow-icon" class="filter">
+        <i class="fa-solid fa-angles-right"></i>
     </div>
-    <div class="filter">
-        <i class="fa-solid fa-tree-city"></i>
-        <p>Countryside</p>  
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-igloo"></i>
-        <p>Unique stays</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-house"></i>
-        <p>Entire homes</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-person"></i>
-        <p>For one</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-people-group"></i>
-        <p>For groups</p>
-    </div>
-    <div class="filter">
-        <i class="fa-solid fa-paw"></i>
-        <p>Pet-friendly</p>
-    </div> -->
-    <!-- <div>
-        <i class="fa-solid fa-sliders"></i>
-        <p>More filters</p>
-    </div> -->
-    <div id="taxToggle" class="filter ms-auto">
+    <div id="taxToggle1" class="filter taxToggle">
         <div class="form-check form-switch form-check-reverse">
-            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-            <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault1">
+            <label class="form-check-label" for="switchCheckDefault1">Display total after taxes</label>
+        </div>
+    </div>
+        <div id="taxToggle2" class="filter taxToggle">
+        <div class="form-check form-switch form-check-reverse">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault2">
+            <label class="form-check-label" for="switchCheckDefault2">After taxes</label>
         </div>
     </div>
 </div>
 
 
+
 <div class="allLists">
     <% for(let i=0; i<allData.length; i++){ %>
-        <div class="card" style="width: 20rem;">
+        <div class="card" onclick="window.location.href='/listings/<%= allData[i]._id %>'">
             <img src="<%= allData[i].image.url %>" class="card-img-top" alt="image loaded">
 
             <div class="card-body">
                 <h5 class="card-title"><b><%= allData[i].title %></b></h5>
                 <p class="card-text"> <span class="prices">&#8377;<%= allData[i].price.toLocaleString('en-IN') %>/night</span> &nbsp; &nbsp; <i class="tax-infos">+18% GST</i></p>
-                <a href="/listings/<%=allData[i]._id%>" class="btn btn-primary">Know more</a>
             </div>
         </div>
     <%} %>
+</div>
+
+<div id="pagination-section">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item <%= page<=1?'disabled':'' %>"><a class="page-link" href="/listings?page=<%= page-1 %>">Previous</a></li>
+            <li class="page-item "><a class="page-link <%= page<=2?'d-none':'' %>" href="/listings?page=<%= page-2 %>"><%= page-2 %></a></li>
+            <li class="page-item"><a class="page-link <%= page<=1?'d-none':'' %>" href="/listings?page=<%= page-1 %>"><%= page-1 %></a></li>
+
+            <li class="page-item active">
+                <a class="page-link" href="/listings?page=<%= page %>" aria-current="page"><%= page %></a>
+            </li>
+
+            <li class="page-item"><a class="page-link <%= page>=maxPage?'d-none':'' %>" href="/listings?page=<%= page+1 %>"><%= page+1 %></a></li>
+            <li class="page-item"><a class="page-link <%= page>=maxPage-1?'d-none':'' %>" href="/listings?page=<%= page+2 %>"><%= page+2 %></a></li>
+            <li class="page-item <%= page>=maxPage?'disabled':'' %>"><a class="page-link" href="/listings?page=<%= page+1 %>">Next</a></li>
+        </ul>
+    </nav>
 </div>
 <% block('scripts').append('<script src="/js/listingPage.js"></script>') %>`

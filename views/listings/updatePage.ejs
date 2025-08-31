@@ -1,5 +1,5 @@
 <%layout('layout')%>
-<%- block('styles').append('<link rel="stylesheet" href="/css/addform.css">') %>
+<%- block('styles').append('<link rel="stylesheet" href="/css/form.css">') %>
 <div class="col-8 offset-2">
     <h1>Edit the listing</h1>
     <form action="/listings/<%=details._id%>?_method=PUT" method="post" enctype="multipart/form-data" novalidate class="needs-validation">
@@ -43,7 +43,7 @@
         </div> 
         <br>
 
-        <button type="submit" class="btn btn-dark red-btn">Edit</button> 
+        <button type="submit" class="btn btn-danger red-btn"><b>Edit</b></button> 
     </form>
     <br>
 </div>

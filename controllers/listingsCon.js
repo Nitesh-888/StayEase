@@ -7,8 +7,12 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 //index route
 export const index = async (req, res) => {
-    let allData = await listing.find();
-    res.render('listings/listingPage', {allData});
+    let {page} = req.query;
+    page = parseInt(page || 1);
+    let totalListings = await listing.countDocuments();
+    let maxPage = Math.ceil(totalListings/12);
+    let allData = await listing.find().skip((page-1)*12).limit(12);
+    res.render('listings/listingPage', {allData, page, maxPage});
 };
 
 //new route

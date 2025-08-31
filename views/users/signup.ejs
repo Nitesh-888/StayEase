@@ -1,5 +1,6 @@
 <% layout('layout') %>
-<h1>SignUp</h1>
+<% block('styles').append('<link rel="stylesheet" href="/css/signup.css">') %>
+<h1 class="mx-auto mt-2 text-danger"><b>SignUp</b></h1>
 <form action="/signup" method="post" novalidate class="needs-validation">
     <div class="row">
         <div class="col-6 offset-3">
@@ -21,7 +22,8 @@
                 <div class="valid-feedback">Look good!</div> 
                 <div class="invalid-feedback">Give a password</div>
             </div>
-            <button type="submit">SignUp</button>
+            <div class="mb-3"><button type="submit" class="btn btn-danger"><b>SignUp</b></button></div>
+            <a href="/login">Already hava an account?</a>
         </div>
     </div>
 </form>
