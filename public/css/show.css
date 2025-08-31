@@ -9,10 +9,12 @@
 
 .card img{
     max-width: 60%;
-    height: auto;    
+    /* width: ; */
+    height: 25rem;    
     border-radius: 1.2rem;
     align-self: center;
 }
+
 .owner {
     padding-left: 20%;
     font-size: 1.2em;
@@ -67,4 +69,27 @@
 #mapSection h3{
     margin-left: 10%;
     margin-bottom: 1rem;
+}
+
+
+
+@media(max-width: 800px){
+    .card img{
+        height: 20rem;
+    }
+}
+@media(max-width : 700px){
+    .card img{
+        height: 18rem;
+        max-width: 80%;
+    }
+    #heading {
+    padding-left: 10%;
+    }
+    .owner{
+        padding-left: 10%;
+    }
+    .card-body{
+        padding-left: 10%;
+    }
 }
