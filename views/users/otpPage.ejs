@@ -12,13 +12,14 @@
                 <div>Enter the verification code to complete the verification process</div>
                 <div>you might need to check your <b>spam folder</b></div>
             </div>
-            <form action="/verify-otp" method="post" id="form">
+            <form action="/auth/verify-otp" method="post" id="form">
                 <input type="number" id="otp" name="otp" placeholder="Enter the otp" min="100000" max="999999">
                 <button type="submit" id="submit-btn"><b>Submit</b></button>
             </form>
             <div id="resend-code-sec">
                 <div>Still can't find the email? No Problem</div>
-                <button type="button" id="resend-btn"><b>Resend Verification Email</b></button>
+                <a href="/auth/resend-otp"><button type="button" id="resend-btn"><b>Resend Verification
+                            Email</b></button></a>
             </div>
 
         </div>

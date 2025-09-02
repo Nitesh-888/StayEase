@@ -6,6 +6,10 @@ const optSchema = new mongoose.Schema({
         required: [true, 'Email is required'],
         unique: [true, 'Email should be unique']
     },
+    username: {
+        type: String,
+        required: true
+    },
     otp: {
         type: Number,
         required: [true, 'Verification code required']

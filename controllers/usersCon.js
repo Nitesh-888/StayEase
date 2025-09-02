@@ -70,6 +70,9 @@ export const signup = async (req, res) => {
     await TempUser.findOneAndDelete({ username: username });
     await TempUser.findOneAndDelete({ email: email });
 
+    //at a time we hold only one otp for a unique email. so we have delete if any otp is already present in OTP model with same email
+    await OTP.findOneAndDelete({ email: email })
+
     //check if any user is register with the curr user's username or email 
     if (await User.findOne({ username: username })) {
         req.flash('error', 'username is already take, Please use a different username');
@@ -81,20 +84,37 @@ export const signup = async (req, res) => {
     }
 
     const newTempUser = new TempUser({ username, email });
-    TempUser.register(newTempUser, password, async (err, user) => {
+    TempUser.register(newTempUser, password, (err, user) => {
         if (err) {
             req.flash('error', err.message);
             console.log(err);
             return res.redirect('/signup');
         }
-        const otp = Math.floor(Math.random() * 900000 + 100000);
-        const newUserOtp = new OTP({ email, otp });
-        await newUserOtp.save();
-        await sendMail({ email, username, otp });
-        req.session.verificationId = newUserOtp._id.toString();
-        res.redirect('/auth');
     });
+    const otp = Math.floor(Math.random() * 900000 + 100000);
+    const newUserOtp = new OTP({ email, username, otp });
+    await newUserOtp.save();
+    await sendMail({ email, username, otp });
+    req.session.verificationId = newUserOtp._id.toString();
+    res.redirect('/auth');
 };
+
+export const resendOtp = async (req, res) => {
+    let otpDoc = await OTP.findById(req.session.verificationId);
+    if (!otpDoc) {
+        req.flash('error', 'Verification session is Expired, try again!');
+        return res.redirect('/signup');
+    }
+    const otp = Math.floor(Math.random() * 900000 + 100000);
+    let { email, username } = otpDoc;
+    otpDoc.otp = otp;
+    otpDoc.save();
+    console.log(otpDoc);
+    console.log(username);
+    console.log(email);
+    await sendMail({ email, username, otp });
+    res.redirect('/auth');
+}
 
 export const loginForm = (req, res) => {
     res.render('users/login');
