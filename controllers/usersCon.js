@@ -109,9 +109,6 @@ export const resendOtp = async (req, res) => {
     let { email, username } = otpDoc;
     otpDoc.otp = otp;
     otpDoc.save();
-    console.log(otpDoc);
-    console.log(username);
-    console.log(email);
     await sendMail({ email, username, otp });
     res.redirect('/auth');
 }
