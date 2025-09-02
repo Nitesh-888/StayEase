@@ -7,6 +7,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Email is required'],
         unique: [true, 'Email should be unique']
+    },
+    username:{
+        type: String,
+        required: true
+    },
+    salt: {
+        type: String,
+        required: true
+    },
+    hash: {
+        type: String,
+        required: true 
     }
 });
 

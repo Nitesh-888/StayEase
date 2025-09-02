@@ -1,7 +1,8 @@
 import express from "express";
 import passport from "passport";
-import { redirectTo } from "../middlewares.js";
-import { homePage, signup, login, signupForm, loginForm, logout } from "../controllers/usersCon.js";
+import { redirectTo, requireOtpSession } from "../middlewares.js";
+import { homePage, signup, login, signupForm, loginForm, logout, otpPage, verifyOtp } from "../controllers/usersCon.js";
+import { wrapAsync } from "../utils/wrapAsync.js";
 
 const app = express();
 
@@ -12,7 +13,10 @@ router.get("/", homePage);
 // sign up route
 router.route("/signup")
     .get(signupForm)
-    .post(signup);
+    .post(wrapAsync(signup));
+
+router.get('/auth', requireOtpSession, otpPage);
+router.post('/verify-otp', wrapAsync(verifyOtp));
 
 // login route
 router.route("/login")

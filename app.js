@@ -24,22 +24,22 @@ const app = express();
 const __dirname = './';
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname + 'public')));
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.engine('ejs', ejsMate);
 app.use(cookieParser());
 app.use(session({
-    secret:process.env.SESSION_SECRET_CLIENT,
-    resave:false,
-    saveUninitialized:false,
+    secret: process.env.SESSION_SECRET_CLIENT,
+    resave: false,
+    saveUninitialized: false,
     cookie: {
-        maxAge: 7*24*60*60*1000
+        maxAge: 7 * 24 * 60 * 60 * 1000
     },
     store: MongoStore.create({
         mongoUrl: process.env.ATLAS_DB_URL,
-        touchAfter: 24*3600,
+        touchAfter: 24 * 3600,
         cryto: {
-            secret : process.env.SESSIOIN_SECRET_SERVER
+            secret: process.env.SESSIOIN_SECRET_SERVER
         }
     })
 }));
@@ -52,14 +52,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req, res, next)=>{
-    res.locals.success=req.flash("success");
-    res.locals.error=req.flash("error");
-    res.locals.currentUser=req.user;
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.currentUser = req.user;
     next();
 });
 
-app.listen(process.env.PORT, ()=> {
+app.listen(process.env.PORT, () => {
     console.log("server is running");
 });
 
@@ -67,8 +67,8 @@ app.listen(process.env.PORT, ()=> {
 
 //database
 main()
-    .then(()=> console.log('connected to mongoDB'))
-    .catch((err)=>console.log(err));
+    .then(() => console.log('connected to mongoDB'))
+    .catch((err) => console.log(err));
 
 async function main() {
     return mongoose.connect(process.env.ATLAS_DB_URL);
@@ -91,9 +91,9 @@ app.all('*', (req, res, next) => {
 
 //error handler
 app.use((err, req, res, next) => {
-    let {statusCode=500, message="Something went wrong"} = err;
+    let { statusCode = 500, message = "Something went wrong" } = err;
     console.log(statusCode, message);
     console.log(err);
     res.status(statusCode);
-    res.render('error', {statusCode, message});
+    res.render('error', { statusCode, message });
 });

@@ -1,45 +1,51 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-.main{
+
+.main {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.fa-compass{
+.fa-compass {
     color: rgb(255, 0, 0);
 }
 
-.navbar{
+.navbar {
     height: 4rem;
 }
 
 .navbar-brand {
-    font-size: 2rem ;
+    font-size: 2rem;
+}
+
+.flash-mess {
+    position: fixed;
 }
 
 /* footer */
-.f-info-links a{
+.f-info-links a {
     text-decoration: none;
     color: #222222;
 }
 
-.f-info-links a:hover{
+.f-info-links a:hover {
     text-decoration: underline;
 }
 
-.f-info-socials{
+.f-info-socials {
     font-size: 2rem;
 }
-.f-info-socials a{
+
+.f-info-socials a {
     color: #222222;
 }
 
 
-#f-info{
+#f-info {
     background-color: rgb(207, 207, 201);
     display: flex;
     flex-direction: column;
@@ -49,13 +55,13 @@ body{
 }
 
 
-.search-btn{
+.search-btn {
     background-color: red;
     color: white;
     border-radius: 1.5rem;
 }
 
-.search-btn:hover{
+.search-btn:hover {
     background-color: darkred;
     color: white;
     cursor: pointer;
@@ -66,51 +72,59 @@ body{
     margin-right: 0.5rem;
 }
 
-#searchBar1{
+#searchBar1 {
     width: 37%;
 }
-#searchBar2{
+
+#searchBar2 {
     display: none;
 }
 
 #searchBar1 form {
     width: 100%;
 }
-.search-inp{
+
+.search-inp {
     border-radius: 1.5rem;
     width: 75%;
 }
 
 
 @media (max-width: 767px) {
-  .navbar-collapse {
-    background-color: #f8f9fa; /* or your navbar color */
-    padding: 1rem;
-  }
-  .search-inp{
-    width: 70%;
-  }
-  #searchBar1{
-    display: none;
-  }
-  #searchBar2{
-    display: block;
-  }
-}
-
-#offer2{
-    display: none;
-}
-@media(max-width: 830px){
-    .search-btn{
-        width : 75px;
-        font-size: 10px;
+    .navbar-collapse {
+        background-color: #f8f9fa;
+        /* or your navbar color */
+        padding: 1rem;
     }
-    #offer1{
+
+    .search-inp {
+        width: 70%;
+    }
+
+    #searchBar1 {
         display: none;
     }
-    #offer2{
+
+    #searchBar2 {
         display: block;
     }
 }
 
+#offer2 {
+    display: none;
+}
+
+@media(max-width: 830px) {
+    .search-btn {
+        width: 75px;
+        font-size: 10px;
+    }
+
+    #offer1 {
+        display: none;
+    }
+
+    #offer2 {
+        display: block;
+    }
+}

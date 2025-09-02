@@ -1,0 +1,24 @@
+<% layout('layout') %>
+    <% block('styles').append('<link rel="stylesheet" href="/css/otpPage.css">') %>
+        <div id="otp-page">
+            <img src="/images/email-icon.png" alt="image loading">
+            <h1 id="heading"><b>Verify your email address</b></h1>
+            <div id="p1">
+                we have sent a verification code to <b>
+                    <%= 'email' %>
+                </b>
+            </div>
+            <div id="p2">
+                <div>Enter the verification code to complete the verification process</div>
+                <div>you might need to check your <b>spam folder</b></div>
+            </div>
+            <form action="/verify-otp" method="post" id="form">
+                <input type="number" id="otp" name="otp" placeholder="Enter the otp" min="100000" max="999999">
+                <button type="submit" id="submit-btn"><b>Submit</b></button>
+            </form>
+            <div id="resend-code-sec">
+                <div>Still can't find the email? No Problem</div>
+                <button type="button" id="resend-btn"><b>Resend Verification Email</b></button>
+            </div>
+
+        </div>
