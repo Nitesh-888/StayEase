@@ -1,85 +1,97 @@
 <% layout('layout') %>
-<% block('styles').append('<link rel="stylesheet" href="/css/home.css">') %>
+    <% block('styles').append('<link rel="stylesheet" href="/css/home.css">') %>
 
-<div id="home-main">
-    <div id="welcome">
-        <h1>Welcome to StayEase</h1>
-    </div>
-    <div id="section1" class="section">
-        <div>
-            <div class="punchLines">
-                <ul>
-                    <li class="punchLine">&#127969;Find your perfect stay with us!</li>
-                    <li class="punchLine">&#128205;Your next adventure begins with just one click.</li>
-                    <li class="punchLine">&#128640;Travel smarter. Stay better. Experience more.</li>
-                </ul>
+        <div id="home-main">
+            <div id="welcome">
+                <h1>Welcome to StayEase</h1>
             </div>
-            <a href="/signup"><button type="button" class="btn btn-danger home-btn"><b>Get Started</b></button></a>
-        </div>
+            <div id="section1" class="section">
+                <div>
+                    <div class="punchLines">
+                        <ul>
+                            <li class="punchLine">&#127969;Find your perfect stay with us!</li>
+                            <li class="punchLine">&#128205;Your next adventure begins with just one click.</li>
+                            <li class="punchLine">&#128640;Travel smarter. Stay better. Experience more.</li>
+                        </ul>
+                    </div>
+                    <a href="<%= currentUser?'/listings':'/signup' %>"><button type="button"
+                            class="btn btn-danger home-btn"><b>Get Started</b></button></a>
+                </div>
 
-        <div id="autoplayingCarousel1" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <div id="autoplayingCarousel1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/home-img1.png" class="d-block w-100 home-img" alt="image loading">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/home-img2.jpg" class="d-block w-100 home-img" alt="image loading">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/home-img3.jpg" class="d-block w-100 home-img" alt="image loading">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#autoplayingCarousel1"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#autoplayingCarousel1"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/images/home-img1.png" class="d-block w-100 home-img" alt="image loading">
+
+            <div id="section2" class="section">
+                <div id="autoplayingCarousel2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/home-img4.jpg" class="d-block w-100 home-img" alt="image loading">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/home-img5.jpg" class="d-block w-100 home-img" alt="image loading">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/images/home-img6.png" class="d-block w-100 home-img" alt="image loading">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#autoplayingCarousel2"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#autoplayingCarousel2"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-item">
-                    <img src="/images/home-img2.jpg" class="d-block w-100 home-img" alt="image loading">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/home-img3.jpg" class="d-block w-100 home-img" alt="image loading">
+                <div class="punchLines" id="punchLine2">
+                    <ul>
+                        <li class="punchLine">&#9992;Travel more, worry less — book with ease.</li>
+                        <li class="punchLine">&#11088;Unique homes. Trusted hosts. Memorable stays.</li>
+                        <li class="punchLine">&#127969;Unique places, unforgettable memories.</li>
+                        <li class="punchLine">&#127757;Book your next adventure with comfort and style.</li>
+                    </ul>
+                    <a href="/listings"><button type="button" class="btn btn-danger home-btn"><b>Discover
+                                more</b></button></a>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#autoplayingCarousel1" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-    </div>
-    
-    <div id="section2" class="section">
-        <div id="autoplayingCarousel2" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/images/home-img4.jpg" class="d-block w-100 home-img" alt="image loading">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/home-img5.jpg" class="d-block w-100 home-img" alt="image loading">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/home-img6.png" class="d-block w-100 home-img" alt="image loading">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#autoplayingCarousel2" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <div class="punchLines" id="punchLine2">
-            <ul>
-                <li class="punchLine">&#9992;Travel more, worry less — book with ease.</li>
-                <li class="punchLine">&#11088;Unique homes. Trusted hosts. Memorable stays.</li>
-                <li class="punchLine">&#127969;Unique places, unforgettable memories.</li>
-                <li class="punchLine">&#127757;Book your next adventure with comfort and style.</li>
-            </ul>
-            <a href="/listings"><button type="button" class="btn btn-danger home-btn"><b>Discover more</b></button></a>
-        </div>
-    </div>
-</div>

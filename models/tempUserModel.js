@@ -9,7 +9,7 @@ const TempUserSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        expires: 30 * 60
+        expires: 10 * 60
     }
 });
 

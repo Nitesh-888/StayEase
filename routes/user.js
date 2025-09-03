@@ -15,9 +15,9 @@ router.route("/signup")
     .get(signupForm)
     .post(wrapAsync(signup));
 
-router.get('/auth', requireOtpSession, otpPage);
+router.get('/auth', wrapAsync(requireOtpSession), wrapAsync(otpPage));
 router.post('/auth/verify-otp', wrapAsync(verifyOtp));
-router.get('/auth/resend-otp', requireOtpSession, wrapAsync(resendOtp));
+router.get('/auth/resend-otp', wrapAsync(requireOtpSession), wrapAsync(resendOtp));
 
 // login route
 router.route("/login")

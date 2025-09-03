@@ -2,6 +2,7 @@ import { listingSchema, reviewSchema } from './utils/schema.js';
 import { ExpressError } from './utils/expressError.js';
 import { listing } from './models/listingsModel.js';
 import { review } from './models/reviewModel.js';
+import { OTP } from './models/otpModel.js';
 
 //validate listing
 export const validateListing = (req, res, next) => {
@@ -86,12 +87,16 @@ export const isAuthor = async (req, res, next) => {
     res.redirect(`/listings/${id}`);
 };
 
-export function requireOtpSession(req, res, next) {
+export async function requireOtpSession(req, res, next) {
     if (req.user) {
         req.flash('error', 'You already logged in');
         return res.redirect('/');
     }
     if (!req.session.verificationId) {
+        req.flash('error', 'Invalid request');
+        return res.redirect('/signup');
+    }
+    if(!(await OTP.findById(req.session.verificationId))){
         req.flash('error', 'Invalid request');
         return res.redirect('/signup');
     }

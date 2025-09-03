@@ -13,7 +13,8 @@ export const signupForm = (req, res) => {
 
 export const otpPage = async (req, res) => {
     let otpDoc = await OTP.findById(req.session.verificationId);
-    res.render('users/otpPage', { email: otpDoc.email });
+    let remTime = 60*1000-(Date.now()-otpDoc.createdAt);
+    res.render('users/otpPage', { email: otpDoc.email , remTime: remTime});
 }
 
 export const verifyOtp = async (req, res, next) => {
@@ -105,9 +106,16 @@ export const resendOtp = async (req, res) => {
         req.flash('error', 'Verification session is Expired, try again!');
         return res.redirect('/signup');
     }
+
+    if (Date.now() - otpDoc.createdAt < 60 * 1000) {
+        req.flash("error", "Please wait before requesting a new OTP.");
+        return res.redirect("/auth");
+    }
+
     const otp = Math.floor(Math.random() * 900000 + 100000);
     let { email, username } = otpDoc;
     otpDoc.otp = otp;
+    otpDoc.createdAt = Date.now();
     otpDoc.save();
     await sendMail({ email, username, otp });
     res.redirect('/auth');
