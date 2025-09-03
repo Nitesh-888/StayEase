@@ -7,6 +7,18 @@
 #heading {
     color: rgb(187, 37, 37);
 }
+#p1-alt{
+    text-align: center;
+    display: none;
+}
+@media(max-width: 550px){
+    #p1{
+        display: none;
+    }
+    #p1-alt{
+        display: block;
+    }
+}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -19,6 +31,9 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 1rem 0 1rem 0;
 }
 
+.email{
+    color: rgb(6, 118, 163);
+}
 #form {
     display: flex;
     flex-direction: column;
@@ -68,6 +83,16 @@ input[type=number]::-webkit-outer-spin-button {
 img {
     width: 10%;
     height: auto;
+}
+@media(max-width: 800px){
+    img{
+        width: 15%;
+    }
+}
+@media(max-width: 400px){
+    img{
+        width: 20%;
+    }
 }
 
 @media(max-width: 750px) {

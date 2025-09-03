@@ -4,9 +4,11 @@
     <img src="/images/email-icon.png" alt="image loading">
     <h1 id="heading"><b>Verify your email address</b></h1>
     <div id="p1">
-        we have sent a verification code to <b>
-            <%= email %>
-        </b>
+        <div>we have sent a verification code to <b class="email"><%= email %></b></div> 
+    </div>
+    <div id="p1-alt">
+        <div>we have sent a verification code to</div> 
+        <div><b class="email"><%= email %></b></div>
     </div>
     <div id="p2">
         <div>Enter the verification code to complete the verification process</div>
