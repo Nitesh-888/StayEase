@@ -31,10 +31,15 @@ The project is built using **Node.js, Express, MongoDB, and EJS**, with authenti
 
 ## 📂 Project Structure
 ├── models/ # Mongoose schemas (User, Listings, etc.)
+
 ├── routes/ # Express routes
+
 ├── views/ # EJS templates
+
 ├── public/ # Static assets (CSS, JS, images)
+
 ├── app.js # Main application entry point
+
 └── package.json # Dependencies & scripts
 
 🤝 Contributing
