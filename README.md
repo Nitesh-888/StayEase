@@ -30,3 +30,19 @@ The project is built using **Node.js, Express, MongoDB, and EJS**, with authenti
 ---
 
 ## 📂 Project Structure
+├── models/ # Mongoose schemas (User, Listings, etc.)
+├── routes/ # Express routes
+├── views/ # EJS templates
+├── public/ # Static assets (CSS, JS, images)
+├── app.js # Main application entry point
+└── package.json # Dependencies & scripts
+
+🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
+
+## 📜 License
+This project is **NOT open source**.  
+All rights reserved © 2025 Nitesh Gupta.  
+
+You may not use, copy, modify, or distribute this code without explicit permission from the author.
+
