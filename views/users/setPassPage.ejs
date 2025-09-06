@@ -1,0 +1,16 @@
+<% layout('layout') %>
+<%- block('styles').append('<link rel="stylesheet" href="/css/newPassPage.css">') %>
+<div id="set-new-pass-page">
+    <h1 id="heading"><b>Create New Password</b></h1>
+    <form action="<%= `/auth/forgot-password/update-password/${updateId}` %>" method="post" id="form">
+        <label for="newPass1">New Password</label>
+        <input type="password" id="newPass" class="mb-1" name="newPass" placeholder="Enter your new password">
+
+        <label for="newPass2">Comfirm Password</label>
+        <input type="password" id="confirmPass" name="confirmPass" placeholder="Confirm your new password">
+
+        <button type="submit" id="submit-btn"><b>Submit</b></button>
+        <div id="error-msg" class="text-danger mt-1"></div>
+    </form>
+</div>
+<%- block('scripts').append('<script src="/js/newPassPage.js"></script>') %>

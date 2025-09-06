@@ -32,11 +32,6 @@ export const validateReview = (req, res, next) => {
     }
 };
 
-//validate user otp
-export const validateOtp = (req, res, next) => {
-
-}
-
 //check if user is logged in
 export const isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
@@ -87,18 +82,49 @@ export const isAuthor = async (req, res, next) => {
     res.redirect(`/listings/${id}`);
 };
 
-export async function requireOtpSession(req, res, next) {
-    if (req.user) {
-        req.flash('error', 'You already logged in');
-        return res.redirect('/');
+export const requireOtpSession = (redirectUrl) => {
+    return async (req, res, next) => {
+        if (req.user) {
+            req.flash('error', 'You already logged in');
+            return res.redirect('/');
+        }
+        if (!req.session.verificationId) {
+            req.flash('error', 'Invalid request');
+            return res.redirect(redirectUrl);
+        }
+        if(!(await OTP.findById(req.session.verificationId))){
+            req.flash('error', 'Invalid request');
+            return res.redirect(redirectUrl);
+        }
+        next();
     }
-    if (!req.session.verificationId) {
-        req.flash('error', 'Invalid request');
-        return res.redirect('/signup');
+}
+
+export const createOtp = ()=>{
+    return Math.floor(Math.random() * 900000 + 100000);
+};
+
+export const validateOtp = (currUrl, redirectUrl) =>{
+    return async (req, res, next) => {
+        if (req.user) {
+            req.flash('error', 'You already logged in');
+            return res.redirect('/');
+        }
+        let { otp } = req.body;
+        if (!otp) {
+            req.flash('error', 'Please enter otp');
+            return res.redirect(currUrl);
+        }
+        let verificationId = req.session.verificationId;
+        if (!verificationId) {
+            req.flash('error', 'Invalid request');
+            return res.redirect('/');
+        }
+        let otpDoc = await OTP.findById(verificationId);
+        if (!otpDoc) {
+            req.flash('error', 'Otp you entered is invalid or expired');
+            return res.redirect(redirectUrl);
+        }
+        next();
     }
-    if(!(await OTP.findById(req.session.verificationId))){
-        req.flash('error', 'Invalid request');
-        return res.redirect('/signup');
-    }
-    next();
 }

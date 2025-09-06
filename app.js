@@ -76,7 +76,9 @@ async function main() {
 //home Route
 app.use("/", userRoute);
 
-
+app.use('/test', (req, res)=>{
+    res.render('users/forgotPassword', {email: 'test@gmail.com'});
+});
 //listing route
 app.use('/listings', listingsRoute);
 

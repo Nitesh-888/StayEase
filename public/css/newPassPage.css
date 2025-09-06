@@ -1,0 +1,49 @@
+#set-new-pass-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#heading {
+    color: rgb(187, 37, 37);
+}
+
+input{
+    border-radius: 1rem;
+    width : 15rem;
+}
+input:focus{
+    box-shadow: 3px 3px 5px rgb(174, 25, 25);
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+#submit-btn {
+    width: 100%;
+    margin: 0.5rem;
+    background-color: rgb(187, 37, 37);
+    color: aliceblue;
+    border-radius: 1rem;
+}
+
+#submit-btn:hover {
+    background-color: darkred;
+}
+
+
+@media(max-width: 750px) {
+    #form {
+        width: 40%;
+    }
+}
+
+@media(max-width: 500px) {
+    #form {
+        width: 60%;
+    }
+}

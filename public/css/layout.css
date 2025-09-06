@@ -24,6 +24,7 @@ body {
 
 .flash-mess {
     position: fixed;
+    z-index: 2;
 }
 
 /* footer */

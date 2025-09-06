@@ -5,6 +5,9 @@ import passportLocalMongoose from "passport-local-mongoose";
 const TempUserSchema = new mongoose.Schema({
     email: {
         type: String,
+        required: [true, 'Email is required'],
+        trim: true,
+        lowercase: true
     },
     createdAt: {
         type: Date,
